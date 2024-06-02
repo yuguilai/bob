@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球球大作战全服排名查询</title>
+    <link rel="icon" href="logo.png" type="image/png">
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            border: 2px solid #87CEEB;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.4);
+        }
+        .input, .button, .small-button {
+            border: 2px solid #87CEEB;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            width: calc(100% - 24px);
+            box-sizing: border-box;
+        }
+        .small-button {
+            width: 50%;
+        }
+        .button, .small-button {
+            background-color: #87CEEB;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .button:hover, .small-button:hover {
+            background-color: #7bbfe7;
+        }
+        .checkbox-container {
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #87CEEB;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            animation: animatetop 0.4s;
+        }
+        @keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #overallScoresImg {
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        #overallScoresImg:fullscreen {
+            transform: scale(2);
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #f0f8ff;
+            padding: 10px 0;
+        }
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            display: none; /* Initially hidden */
+            position: fixed;
+            left: 50%;
+            top            50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div><a href="https://qm.qq.com/q/7p9qc24oEw">广告位1元/月</a>
+    <a href="https://qm.qq.com/q/7p9qc24oEw">联系站长</a>
+    </div>
+    <br><br>
+        <a href="http://yuguilai.ysupan.com" class="small-button" >南枝资源合集</a>
+        <input type="text" id="nameInput" class="input" placeholder="输入玩家ID">
+        <div class="checkbox-container">
+            <input type="checkbox" id="consentCheckbox">
+            <label for="consentCheckbox">我同意 
+            <a href="tiaoz.html">《查询政策》</a>
+             </label>
+        </div>
+        <button id="searchButton" class="button">查询排名</button>
+        <div id="result"></div>
+        <div id="loader" class="loader"></div>
+    </div>
+    <div class="footer" >Copyright by © 欲归来南枝 2024 </div>
+
+    <!-- Modal for overall scores -->
+    <div id="overallScoresModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function() {
+            var playerId = document.getElementById('nameInput').value.trim();
+            var consentChecked = document.getElementById('consentCheckbox').checked;
+            var resultDiv = document.getElementById('result');
+            var loader = document.getElementById('loader');
+            
+            loader.style.display = 'block'; // 显示加载动画
+            
+            if (!consentChecked) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '操作未授权',
+                    text: '非法查询，请勾选确认框。'
+                });
+                loader.style.display = 'none'; // 隐藏加载动画
+                return;
+            }
+
+            if (!playerId) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '缺少信息',
+                    text: '请输入玩家ID。'
+                });
+                loader.style.display = 'none'; // 隐藏加载动画
+                return;
+            }
+
+            fetch(`https://webpay-api.battleofballs.com/api/player/${playerId}`)
+                .then(response => response.json())
+                .then(data => {
+                    loader.style.display = 'none'; // 隐藏加载动画
+
+                    if (data.code === -1) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: '查询失败',
+                            text: '用户不存在或ID被官方保护'
+                        });
+                    } else if (data.code === 0) {
+                        const name = data.data.name;
+                        const qqid = data.data.qqid;
+                        const uid = data.data.uid;
+                        resultDiv.innerHTML = `
+                            <p>中文ID: ${name}</p>
+                            <p>数字ID: ${qqid}</p>
+                            <p>全服排名: ${uid}</p>
+                        `;
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: '查询失败',
+                            text: '未知错误'
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    loader.style.display = 'none'; // 隐藏加载动画
+                    Swal.fire({
+                        icon: 'error',
+                        title: '错误',
+                        text: '加载数据时出错，请检查网络连接或稍后重试。'
+                    });
+                });
+        });
+
+        // Handling the view overall scores button
+        document.getElementById('viewOverallButton').addEventListener('click', function() {
+            var modal = document.getElementById('overallScoresModal');
+            modal.style.display = "block";
+        });
+
+        // Handling the close button for the modal
+        document.querySelector('.modal .close').addEventListener('click', function() {
+            var modal = document.getElementById('overallScoresModal');
+            modal.style.display = "none";
+        });
+
+        // Enabling image to be viewed in fullscreen on click
+        document.getElementById('overallScoresImg').addEventListener('click', function() {
+            if (this.requestFullscreen) {
+                this.requestFullscreen();
+            } else if(this.mozRequestFullScreen) { /* Firefox */
+                this.mozRequestFullScreen();
+            } else if (this.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                this.webkitRequestFullscreen();
+            } else if (this.msRequestFullscreen) { /* IE/Edge */
+                this.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
