@@ -72,29 +72,38 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
 }
+.footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color:#0000ff;
+            background-color: #00ca0d0d;
+            padding: 10px 0;
+        }
 </style>
 </head>
 <body>
 
 <div class="container">
-    <h1 data-lang="title">《查询政策》</h1>
+    <h1 data-lang="查询政策">《查询政策》</h1>
     <div class="policy">
-        <p data-lang="greeting">尊敬的用户：</p>
-        <p data-lang="intro">欢迎使用我们的球球大作战全服排名查询服务。为了保障您的权益和安全，请您仔细阅读以下政策：</p>
-        <p data-lang="policy1">1. 本查询服务完全免费，禁止将查询服务用于任何形式的收费或圈钱行为。</p>
-        <p data-lang="policy2">2. 用户可以通过球球用户名或球球号进行查询。</p>
-        <p data-lang="policy3">3. 查询失败可能有两种原因：</p>
-        <ul data-lang="policy3-details">
-            <li>用户ID不存在（没有这个用户）。</li>
-            <li>用户长期未登录账号，受到了官方保护。</li>
+        <p data-lang="尊敬的用户：">尊敬的用户：</p>
+        <p data-lang="欢迎使用我们的球球大作战全服排名查询服务。为了保障您的权益和安全，请您仔细阅读以下政策：">欢迎使用我们的球球大作战全服排名查询服务。为了保障您的权益和安全，请您仔细阅读以下政策：</p>
+        <p data-lang="1. 本查询服务完全免费，禁止将查询服务用于任何形式的收费或圈钱行为。">1. 本查询服务完全免费，禁止将查询服务用于任何形式的收费或圈钱行为。</p>
+        <p data-lang="2. 用户可以通过球球用户名或球球号进行查询。">2. 用户可以通过球球用户名或球球号进行查询。</p>
+        <p data-lang="3. 查询失败可能有两种原因：">3. 查询失败可能有两种原因：</p>
+        <ul data-lang="· 用户ID不存在（没有这个用户）。<br>· 用户长期未登录账号，受到了官方保护。">
+            <li data-lang="用户ID不存在（没有这个用户）。">用户ID不存在（没有这个用户）。</li>
+            <li data-lang="用户长期未登录账号，受到了官方保护。">用户长期未登录账号，受到了官方保护。</li>
         </ul>
-        <p data-lang="policy4">4. 本查询服务仅限于个人使用，禁止用于商业用途。</p>
-        <p data-lang="policy5">5. 用户应妥善保管个人信息，不得泄露给他人。</p>
-        <p data-lang="policy6">6. 若发现有异常情况，请及时联系管理员处理。</p>
-        <p data-lang="policy7">7. 本网站保留对政策进行调整的权利，调整后将在网站公告栏进行通知。</p>
-        <p data-lang="thanks">谢谢您的配合和理解。</p>
+        <p data-lang="4. 本查询服务仅限于个人使用，禁止用于商业用途。">4. 本查询服务仅限于个人使用，禁止用于商业用途。</p>
+        <p data-lang="5. 用户应妥善保管个人信息，不得泄露给他人。">5. 用户应妥善保管个人信息，不得泄露给他人。</p>
+        <p data-lang="6. 若发现有异常情况，请及时联系管理员处理。">6. 若发现有异常情况，请及时联系管理员处理。</p>
+        <p data-lang="7. 本网站保留对政策进行调整的权利，调整后将在网站公告栏进行通知。">7. 本网站保留对政策进行调整的权利，调整后将在网站公告栏进行通知。</p>
+        <p data-lang="谢谢您的配合和理解。">谢谢您的配合和理解。</p>
     </div>
-    <a href="tiaoc.html" class="return-button" data-lang="return">返回</a>
+    <a href="tiaoc.html" class="return-button" data-lang="返回">返回</a>
     <div class="lang-dropdown">
         <select onchange="changeLanguage(this.value)">
             <option value="zh-CN">中文</option>
@@ -104,59 +113,81 @@ h1 {
         </select>
     </div>
 </div>
-
+  <div class="footer" >Copyright by © 欲归来南枝 2024 </div>
 <script>
-const translations = {
-    "zh-CN": {
-        "title": "《查询政策》",
-        "greeting": "尊敬的用户：",
-        "intro": "欢迎使用我们的球球大作战全服排名查询服务。为了保障您的权益和安全，请您仔细阅读以下政策：",
-        "policy1": "1. 本查询服务完全免费，禁止将查询服务用于任何形式的收费或圈钱行为。",
-        "policy2": "2. 用户可以通过球球用户名或球球号进行查询。",
-        "policy3": "3. 查询失败可能有两种原因：",
-        "policy3-details": "<li>用户ID不存在（没有这个用户）。</li><li>用户长期未登录账号，受到了官方保护。</li>",
-        "policy4": "4. 本查询服务仅限于个人使用，禁止用于商业用途。",
-        "policy5": "5. 用户应妥善保管个人信息，不得泄露给他人。",
-        "policy6": "6. 若发现有异常情况，请及时联系管理员处理。",
-        "policy7": "7. 本网站保留对政策进行调整的权利，调整后将在网站公告栏进行通知。",
-        "thanks": "谢谢您的配合和理解。",
-        "return": "返回"
-    },
-    "en": {
-        "title": "《Query Policy》",
-        "greeting": "Dear User,",
-        "intro": "Welcome to our Battle of Balls global ranking query service. To ensure your rights and safety, please read the following policies carefully:",
-        "policy1": "1. This query service is completely free, and it is prohibited to use the query service for any form of charging or making money.",
-        "policy2": "2. Users can query using their Battle of Balls username or Battle ID.",
-        "policy3": "3. Query failure may have two reasons:",
-        "policy3-details": "<li>The user ID does not exist (no such user).</li><li>The user has not logged in for a long time and the account is protected by the official.</li>",
-        "policy4": "4. This query service is for personal use only and is prohibited for commercial purposes.",
-        "policy5": "5. Users should properly safeguard personal information and not disclose it to others.",
-        "policy6": "6. If any abnormal situation is found, please contact the administrator for handling.",
-        "policy7": "7. This website reserves the right to adjust policies, and the adjustments will be notified in the website announcement column.",
-        "thanks": "Thank you for your cooperation and understanding.",
-        "return": "Return"
-    },
-    "ko": {
-        "title": "《정책 조회》",
-        "greeting": "친애하는 사용자,",
-        "intro": "저희의 Battle of Balls 글로벌 랭킹 조회 서비스를 이용해주셔서 환영합니다. 귀하의 권리와 안전을 보호하기 위해 다음 정책을 주의 깊게 읽어주십시오:",
-        "policy1": "1. 이 조회 서비스는 완전히 무료이며, 조회 서비스를 어떠한 형태의 요금 청구나 돈 벌이에 사용하는 것은 금지됩니다.",
-        "policy2": "2. 사용자는 Battle of Balls 사용자 이름이나 Battle ID를 사용하여 조회할 수 있습니다.",
-        "policy3": "3. 조회 실패에는 두 가지 이유가 있을 수 있습니다:",
-        "policy3-details": "<li>사용자 ID가 존재하지 않습니다 (해당 사용자가 없음).</li><li>사용자가 오랫동안 로그인하지 않아 계정이 공식적으로 보호됩니다.</li>",
-        "policy4": "4. 이 조회 서비스는 개인용으로만 사용되며 상업적 목적으로 사용하는 것은 금지됩니다.",
-        "policy5": "5. 사용자는 개인 정보를 적절히 보관하고 다른 사람에게 누설해서는 안됩니다.",
-        "policy6": "6. 비정상적인 상황이 발생하면 즉시 관리자에게 연락하여 처리하십시오.",
-        "policy7": "7. 본 웹사이트는 정책을 조정하는 권리를 보유하며 조정된 내용은 웹사이트 공지사항에서 통지됩니다.",
-        "thanks": "협조와 이해에 감사드립니다.",
-        "return": "돌아가기"
-    },
-    "ja": {
-        "title": "《照会ポリシー》",
-        "greeting": "尊敬するユーザー,",
-        "intro": "当社のBattle of Ballsグローバルランキング照会サービスをご利用いただきありがとうございます。 あなたの権利と安全を確保するために、以下の方針を注意深くお読みください:",
-        "policy1": "1. この照会サービスは完全に無料であり、照会サービスをいかなる形であれ料金請求やお金稼ぎに使用することは禁じられています。",
-        "policy2": "2. ユーザーはBattle of Ballsのユーザー名またはBattle IDを使用して照会できます。",
-        "policy3": "3. 照会が失敗する可能性がある2つの理由があります:",
-        "policy3-details": "<li>ユーザーIDが存在しません（そのようなユーザーはいません）。
+function changeLanguage(lang) {
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
+    changeTexts(lang);
+}
+
+function changeTexts(lang) {
+    var elements = document.querySelectorAll('[data-lang]');
+    elements.forEach(function(element) {
+        var text = element.getAttribute('data-lang');
+        switch (lang) {
+            case 'zh-CN':
+                element.innerHTML = text;
+                break;
+            case 'en':
+                element.innerHTML = text.replace('尊敬的用户：', 'Dear User:')
+                                       .replace('欢迎使用我们的球球大作战全服排名查询服务。为了保障您的权益和安全，请您仔细阅读以下政策：', 'Welcome to our Battle of Balls global ranking query service. To ensure your rights and safety, please read the following policies carefully:')
+                                       .replace('本查询服务完全免费，禁止将查询服务用于任何形式的收费或圈钱行为。', 'This query service is completely free, and it is prohibited to use the query service for any form of charging or making money.')
+                                       .replace('用户可以通过球球用户名或球球号进行查询。', 'Users can query using their Battle of Balls username or Battle ID.')
+                                       .replace('查询失败可能有两种原因：', 'Query failure may have two reasons:')
+                                       .replace('用户ID不存在（没有这个用户）。', 'The user ID does not exist (no such user).')
+                                       .replace('用户长期未登录账号，受到了官方保护。', 'The user has not logged in for a long time and the account is protected by the official.')
+                                       .replace('本查询服务仅限于个人使用，禁止用于商业用途。', 'This query service is for personal use only and is prohibited for commercial purposes.')
+                                       .replace('用户应妥善保管个人信息，不得泄露给他人。', 'Users should properly safeguard personal information and not disclose it to others.')
+                                       .replace('若发现有异常情况，请及时联系管理员处理。', 'If any abnormal situation is found, please contact the administrator for processing.')
+                                       .replace('本网站保留对政策进行调整的权利，调整后将在网站公告栏进行通知。', 'This website reserves the right to adjust policies, and the adjustments will be notified in the website announcement column.')
+                                       .replace('谢谢您的配合和理解。', 'Thank you for your cooperation and understanding.')
+                                       .replace('返回', 'Return');
+                break;
+            case 'ko':
+                element.innerHTML = text.replace('尊敬的用户：', '친애하는 사용자:')
+                                       .replace('欢迎使用我们的球球大作战全服排名查询服务。为了保障您的权益和安全，请您仔细阅读以下政策：', '저희의 성적 조회 서비스를 이용해주셔서 환영합니다. 귀하의 권리와 안전을 보호하기 위해 아래 정책을 주의 깊게 읽어주십시오:')
+                                       .replace('本查询服务完全免费，禁止将查询服务用于任何形式的收费或圈钱行为。', '본 조회 서비스는 완전히 무료이며, 조회 서비스를 어떤 형태로든 요금이나 돈을 버는 용도로 사용하는 것은 금지되어 있습니다.')
+                                       .replace('用户可以通过球球用户名或球球号进行查询。', '사용자는 Battle of Balls 사용자 이름 또는 Battle ID를 사용하여 조회할 수 있습니다.')
+                                       .replace('查询失败可能有两种原因：', '조회 실패의 원인은 다음 두 가지일 수 있습니다:')
+                                       .replace('用户ID不存在（没有这个用户）。', '사용자 ID가 존재하지 않습니다(이 사용자가 없음).')
+                                       .replace('用户长期未登录账号，受到了官方保护。', '사용자가 오랫동안 로그인하지 않아 계정이 공식적으로 보호됩니다.')
+                                       .replace('本查询服务仅限于个人使用，禁止用于商业用途。', '이 조회 서비스는 개인 용도로만 사용되며 상업적 용도로 사용하는 것은 금지되어 있습니다.')
+                                       .replace('用户应妥善保管个人信息，不得泄露给他人。', '사용자는 개인 정보를 적절히 보관하고 다른 사람에게 누설해서는 안됩니다.')
+                                       .replace('若发现有异常情况，请及时联系管理员处理。', '비정상적인 상황이 발생하면 즉시 관리자에게 연락하여 처리하십시오.')
+                                       .replace('本网站保留对政策进行调整的权利，调整后将在网站公告栏进行通知。', '본 웹사이트는 정책을 조정하는 권리를 보유하며 조정된 내용은 웹사이트 공지사항에서 통지됩니다.')
+                                       .replace('谢谢您的配合和理解。', '귀하의 협조와 이해에 감사드립니다.')
+                                       .replace('返回', '돌아 가기');
+                break;
+            case 'ja':
+                element.innerHTML = text.replace('尊敬的用户：', '尊敬するユーザー：')
+                                       .replace('欢迎使用我们的球球大作战全服排名查询服务。为了保障您的权益和安全，请您仔细阅读以下政策：', '当社の成績照会サービスをご利用いただきありがとうございます。 あなたの権利と安全を確保するために、以下の方針を注意深くお読みください：')
+                                       .replace('本查询服务完全免费，禁止将查询服务用于任何形式的收费或圈钱行为。', '本照会サービスは完全に無料であり、照会サービスをあらゆる形態の課金または金儲けのために使用することは禁止されています。')
+                                       .replace('用户可以通过球球用户名或球球号进行查询。', 'ユーザーは Battle of Balls ユーザー名または Battle ID を使用して照会できます。')
+                                       .replace('查询失败可能有两种原因：', '照会の失敗には次の2つの原因が考えられます：')
+                                       .replace('用户ID不存在（没有这个用户）。', 'ユーザーIDが存在しません（このユーザーはいません）。')
+                                       .replace('用户长期未登录账号，受到了官方保护。', 'ユーザーが長期間ログインしておらず、アカウントが公式に保護されています。')
+                                       .replace('本查询服务仅限于个人使用，禁止用于商业用途。', '本照会サービスは個人使用のみを目的としており、商業目的での使用は禁止されています。')
+                                       .replace('用户应妥善保管个人信息，不得泄露给他人。', 'ユーザーは個人情報を適切に保管し、他人に漏洩してはなりません。')
+                                       .replace('若发现有异常情况，请及时联系管理员处理。', '異常な状況が発生した場合は、すみやかに管理者に連絡して処理してください。')
+                                       .replace('本网站保留对政策进行调整的权利，调整后将在网站公告栏进行通知。', '本ウェブサイトはポリシーを調整する権利を留保し、調整後はウェブサイトのお知らせ欄で通知されます。')
+                                       .replace('谢谢您的配合和理解。', 'ご理解とご協力に感謝します。')
+                                       .replace('返回', '戻る');
+                break;
+        }
+    });
+}
+
+function initLanguage() {
+    var lang = localStorage.getItem('lang');
+    if (lang) {
+        changeLanguage(lang);
+        document.querySelector('.lang-dropdown select').value = lang;
+    }
+}
+
+initLanguage();
+</script>
+</body>
+</html>
+                                       
