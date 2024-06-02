@@ -7,7 +7,8 @@
 <meta name="description" content="南枝球球查排名,输了用户名或球球号可以立刻查出球球全服排名,永久免费使用,官方交流群：943960501" />
     <meta name="keywords" content="球球查排名,球球免费查排名,球球全服排名,南枝球球查排名,球球大作战,球球大作战查排名,球球大作战免费查排名" />
     <link rel="icon" href="https://www.battleofballs.com/index/_nuxt/img/qiuqiulogo.d9ada6d.png">
-   <script src="https://yuguilai.github.io/yuguilai/image/nanzhi.js"></script>  
+   <script src="https://yuguilai.github.io/yuguilai/image/nanzhi.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/styles.css">  
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,116 +20,6 @@
             background-position: bottom:;
             backdrop-filter: blur(0px); 
             min-height: 100vh;
-        }
-        .container {
-            border: 2px solid #87CEEB;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.4);
-        }
-        .input, .button, .small-button {
-            border: 2px solid #87CEEB;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px 0;
-            width: calc(100% - 24px);
-            box-sizing: border-box;
-        }
-        .small-button {
-            width: 50%;
-        }
-        .button, .small-button {
-            background-color: #87CEEB;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .button:hover, .small-button:hover {
-            background-color: #7bbfe7;
-        }
-        .checkbox-container {
-            margin: 10px 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #87CEEB;
-            text-align: left;
-            padding: 8px;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            animation: animatetop 0.4s;
-        }
-        @keyframes animatetop {
-            from {top: -300px; opacity: 0}
-            to {top: 0; opacity: 1}
-        }
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        #overallScoresImg {
-            width: 100%;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        #overallScoresImg:fullscreen {
-            transform: scale(2);
-        }
-        .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            color:#0000ff;
-            background-color: #66ff0000;
-            padding: 10px 0;
-        }
-        .loader {
-            border: 16px solid #f3f3f3; /* Light grey */
-            border-top: 16px solid #3498db; /* Blue */
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            animation: spin 2s linear infinite;
-            display: none; /* Initially hidden */
-            position: fixed;
-            left: 50%;
-            top            50%;
-            transform: translate(-50%, -50%);
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
