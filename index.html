@@ -50,7 +50,12 @@
     </div>
 
     <script>
-        document.getElementById('searchButton').addEventListener('click', function() {
+   Swal.fire({
+        icon: 'info',
+        title: '声明',
+        text: '本网站不存在记录球宝账号信息行为，本网站为Github开源Pages页，不支持php，所以不可能存在数据保存能力，请放心使用。'
+      }); 
+    document.getElementById('searchButton').addEventListener('click', function() {
             var playerId = document.getElementById('nameInput').value.trim();
             var consentChecked = document.getElementById('consentCheckbox').checked;
             var resultDiv = document.getElementById('result');
