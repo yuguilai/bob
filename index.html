@@ -4,32 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>球球大作战全服排名查询</title>
-<meta name="description" content="南枝球球查排名,输入用户名或球球号可以立刻查出球球全服排名,永久免费使用,官方交流群：943960501" />
-    <meta name="keywords" content="球球查排名,球球免费查排名,球球全服排名,南枝球球查排名,球球大作战,球球大作战查排名,球球大作战免费查排名" />
-    <link rel="icon" href="image/logo.png">
-   <link rel="stylesheet" type="text/css" href="css/styles.css">  
+    <link rel="icon" href="logo.png" >
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'CustomFont', Arial, sans-serif;
             background-color: #f0f8ff;
             margin: 0;
             padding: 0;
-            background-image:url(image/南枝.png);
+            background-image: url(https://op-file.bobworld.net/pro/5078/rsc/img/e1d1da77-9d38-4498-8efa-111393c8b8a6.jpg);
             background-size: cover; 
-            background-position: bottom:;
-            backdrop-filter: blur(0px); 
+            background-position: bottom;
+            backdrop-filter: blur(8px); 
             min-height: 100vh;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-    <div><a href="https://qm.qq.com/q/7p9qc24oEw">广告位1元/月</a>
-    <a href="https://qm.qq.com/q/7p9qc24oEw">联系站长</a>
-    </div>
-    <br><br>
         <a href="http://yuguilai.ysupan.com" class="small-button" >南枝资源合集</a>
-        <input type="text" id="nameInput" class="input" placeholder="输入球球ID">
+        <br><br>
+        <input type="text" id="nameInput" class="input" placeholder="输入玩家ID">
         <div class="checkbox-container">
             <input type="checkbox" id="consentCheckbox">
             <label for="consentCheckbox">我同意 
@@ -41,21 +37,22 @@
         <div id="loader" class="loader"></div>
     </div>
     <div class="footer" >Copyright by © 欲归来南枝 2024 </div>
-    <script src="js/nanzhi.js"></script> 
+<script src="js/script.js"></script> 
     <!-- Modal for overall scores -->
     <div id="overallScoresModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
         </div>
     </div>
-
+<div align="center"><a href="https://qm.qq.com/cgi-bin/qm/qr?k=h-Yk4Z3OSIJS4MSCkthCNl7BZskTu1MD">添加作者</a></div>
     <script>
-   Swal.fire({
+       Swal.fire({
         icon: 'info',
         title: '声明',
         text: '本网站不存在记录球宝账号信息行为，本网站为Github开源Pages页，不支持php，所以不可能存在数据保存能力，请放心使用。'
-      }); 
-    document.getElementById('searchButton').addEventListener('click', function() {
+      });
+ 
+        document.getElementById('searchButton').addEventListener('click', function() {
             var playerId = document.getElementById('nameInput').value.trim();
             var consentChecked = document.getElementById('consentCheckbox').checked;
             var resultDiv = document.getElementById('result');
@@ -77,7 +74,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: '缺少信息',
-                    text: '请输入球球ID。'
+                    text: '请输入玩家ID。'
                 });
                 loader.style.display = 'none'; // 隐藏加载动画
                 return;
@@ -134,7 +131,7 @@
             modal.style.display = "none";
         });
 
-        // Enabling image to be viewed in fullscreen on click
+        // Enabling image to be viewed in))) fullscreen on click
         document.getElementById('overallScoresImg').addEventListener('click', function() {
             if (this.requestFullscreen) {
                 this.requestFullscreen();
