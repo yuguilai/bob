@@ -81,7 +81,7 @@
                 return;
             }
 
-            fetch(`https://webpay-api.battleofballs.com/api/player/${playerId}`)
+            fetch(`https://webpay-api.battleofballs.com/api/v3/player/${playerId}?buyId=1&app=web&ts=1738047670&noise=09aJhK&ver=0.1.1&sign=1435062D5FD6B17A3294BEB4DCD45F92FEF08C2BA373EA3C39259D711EF6DFCA`)
                 .then(response => response.json())
                 .then(data => {
                     loader.style.display = 'none'; // 隐藏加载动画
